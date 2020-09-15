@@ -15,7 +15,7 @@ const Home = ({ myList, trends, originals }) =>{
             {myList !==undefined &&  myList.length > 0 &&
             <Categories  title="Mi lista">
                 <Carousel>
-                    { myListt.map(item =>{
+                    { myList.map(item =>{
                         return <CarouselItem key={item.id} {...item }/>           
                         })
                     }                
