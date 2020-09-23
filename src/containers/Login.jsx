@@ -4,6 +4,7 @@ import twitterIcon from '../assets/static/twitter-icon.png'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loginRequest } from '../actions'
+import  Header  from '../components/Header'
 import '../assets/styles/components/Login.scss'
 const Login = (props) =>{
     const [form, setValues] = useState({
@@ -24,6 +25,8 @@ const Login = (props) =>{
         props.history.push('/')
     }
     return(
+    <>
+     <Header isLogin/>  
         <section className='login'>
             <section className='login__container'>
             <h2>Inicia sesión</h2>
@@ -64,6 +67,7 @@ const Login = (props) =>{
             </p>
         </section>
     </section>
+</>
 )};
 
 const mapDispatchToProps = {
