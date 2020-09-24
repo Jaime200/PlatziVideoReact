@@ -1,6 +1,4 @@
 const reducer = ( state, action ) =>{
-    console.log(state.myList);
-    console.log(action);
     switch(action.type){
         case 'SET_FAVORITE': 
             return {
@@ -32,14 +30,19 @@ const reducer = ( state, action ) =>{
                 user:action.payload
             }
         case 'GET_VIDEO_SOURCE':
-            console.log(state.trends.find(f=>f.id ===Number(action.payload)) 
-            ||  state.originals.find(f=>f.id === Number(action.payload)));
             return {
                 ...state,
                 playing : state.trends.find(f=>f.id ===Number(action.payload)) 
                 ||  state.originals.find(f=>f.id === Number(action.payload))
                 || []
             }
+        case 'SEARCH_VIDEO' :                
+                const newArray = [...state.trends, ...state.originals];
+                if(action.payload === "") return { ...state, searchResult: [] };
+                return {
+                    ...state,
+                    search: newArray.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()))
+                };
         default:  return state;
     }
 }

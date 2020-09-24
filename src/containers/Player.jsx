@@ -1,7 +1,7 @@
 import React, {  useState  } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { NotFound } from './NotFound'
+import  NotFound  from './NotFound'
 import { getVideoSource } from '../actions'
 import '../assets/styles/components/Player.scss'
 const Player = (props)=>{
